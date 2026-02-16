@@ -6,7 +6,7 @@ class HTMLNode:
         self.props = props if props is not None else {}
 
     def __repr__(self):
-        print(f"Tag: {self.tag}\nValue: {self.value}\nChildren: {self.children}\nProps: {self.props}")
+        return f"Tag: {self.tag}\nValue: {self.value}\nChildren: {self.children}\nProps: {self.props}"
 
     def to_html(self):
         raise NotImplementedError("to_html method must be implemented by subclasses")
@@ -14,4 +14,4 @@ class HTMLNode:
     def props_to_html(self):
         if not self.props:
             return ""
-        return " ".join(f'{key}="{value}"' for key, value in self.props)
+        return "".join(f' {key}="{value}"' for key, value in self.props.items())
